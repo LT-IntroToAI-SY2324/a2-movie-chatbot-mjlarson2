@@ -40,6 +40,8 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
                     output += source[sind]
                     output += " "
                     sind += 1
+                    if(sind >= len(source)):
+                        return None
                 output = output[:-1]
                 result.append(output)
                 pind += 1
@@ -98,5 +100,7 @@ if __name__ == "__main__":
     # written our match function
     assert match(["x", "%", "z"], ["x", "y", "z", "z", "z"]
                  ) == None, "test 15 failed"
+    assert match(["%", "z"], ["x", "y", "w"]) == None, "test 16 failed"
+
 
     print("All tests passed!")
